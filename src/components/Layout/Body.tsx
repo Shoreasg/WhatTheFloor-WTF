@@ -1,11 +1,17 @@
-// import { NextPage } from "next";
 
+import { ReactNode } from "react";
 
-// const Body:NextPage = ({children}) =>
-// {
-//     return(
-//         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-//             {children}
-//         </div>
-//     )
-// }
+type Props = {
+children: ReactNode;
+};
+
+const Body = ({children}:Props) =>
+{
+    return(
+        <div className="mx-auto max-w max-w-full">
+            {children}
+        </div>
+    )
+}
+
+export default Body
