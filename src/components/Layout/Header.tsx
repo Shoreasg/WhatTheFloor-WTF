@@ -2,10 +2,11 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NextPage } from 'next'
 import Image from 'next/future/image'
+import Link from 'next/link'
 
 const navigation: { name: string, href: string }[] = [
-    { name: 'Dashboard', href: '#' },
-    { name: 'FAQ', href: '#' },
+    { name: 'Dashboard', href: '/dashboard' },
+    { name: 'FAQ', href: '/faq' },
 ]
 
 const Header: NextPage = () => {
@@ -46,13 +47,14 @@ const Header: NextPage = () => {
                                 <div className="hidden sm:ml-6 sm:block mt-7">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <a
-                                                key={item.name}
-                                                href={item.href}
-                                                className='text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
-                                            >
-                                                {item.name}
-                                            </a>
+                                            <Link href={item.href}>
+                                                <a
+                                                    key={item.name}
+                                                    className='text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                                                >
+                                                    {item.name}
+                                                </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -62,14 +64,14 @@ const Header: NextPage = () => {
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 px-2 pt-2 pb-3">
                             {navigation.map((item) => (
-                                <Disclosure.Button
-                                    key={item.name}
-                                    as="a"
-                                    href={item.href}
-                                    className='text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
-                                >
-                                    {item.name}
-                                </Disclosure.Button>
+                                <Link href={item.href}>
+                                    <Disclosure.Button
+                                        key={item.name}
+                                        className='text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
+                                    >
+                                        {item.name}
+                                    </Disclosure.Button>
+                                </Link>
                             ))}
                         </div>
                     </Disclosure.Panel>

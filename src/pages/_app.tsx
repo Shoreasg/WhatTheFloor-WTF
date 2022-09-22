@@ -4,11 +4,20 @@ import { loggerLink } from "@trpc/client/links/loggerLink";
 import { withTRPC } from "@trpc/next";
 import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
+import Footer from "../components/Layout/Footer";
+import Header from "../components/Layout/Header";
+import MyHead from "../components/Layout/MyHead";
 import type { AppRouter } from "../server/router";
 import "../styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <MyHead />
+      <Header/>
+      <Component {...pageProps} />
+      <Footer/>
+    </>)
 };
 
 const getBaseUrl = () => {
