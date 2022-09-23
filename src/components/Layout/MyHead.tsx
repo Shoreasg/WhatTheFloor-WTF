@@ -1,8 +1,7 @@
-import { NextPage } from "next";
 import Head from "next/head";
 
 
-const MyHead:NextPage = () => {
+const MyHead = () => {
     return (
         <Head>
             <title>WTF | The Ultimate NFT Tracker</title>

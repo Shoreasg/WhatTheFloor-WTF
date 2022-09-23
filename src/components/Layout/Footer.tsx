@@ -40,7 +40,7 @@ const navigation:{name:string, href:string, icon:any}[] = [
   },
 ]
 
-const Footer:NextPage = () => {
+const Footer = () => {
   return (
     <footer className="bg-[#29CCC4]">
       <div className="mx-auto max-w-9xl py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">

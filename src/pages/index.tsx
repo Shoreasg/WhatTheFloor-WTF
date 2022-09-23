@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import CarouselBanner from "../components/CarouselBanner";
 import Body from "../components/Layout/Body";
 import { trpc } from "../utils/trpc";
 
@@ -7,7 +8,7 @@ const Home: NextPage = () => {
 
   return (
     <Body>
-      <h1>hello</h1>
+        <CarouselBanner />
     </Body>
   );
 };

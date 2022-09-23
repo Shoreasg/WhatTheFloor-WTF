@@ -1,6 +1,5 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { NextPage } from 'next'
 import Image from 'next/future/image'
 import Link from 'next/link'
 
@@ -9,7 +8,7 @@ const navigation: { name: string, href: string }[] = [
     { name: 'FAQ', href: '/faq' },
 ]
 
-const Header: NextPage = () => {
+const Header = () => {
     return (
         <Disclosure as="nav" className="bg-[#29CCC4]">
             {({ open }) => (
