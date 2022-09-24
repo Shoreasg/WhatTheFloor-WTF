@@ -8,7 +8,7 @@ children: ReactNode;
 const Body = ({children}:Props) =>
 {
     return(
-        <div className="max-w-max max-h-max bg-[#29CCC4]">
+        <div className="min-h-screen bg-[#29CCC4]">
             {children}
         </div>
     )

@@ -17,6 +17,8 @@
     "@trpc/next": "^9.27.2",
     "@trpc/react": "^9.27.2",
     "@trpc/server": "^9.27.2",
+    "@zilliqa-js/zilliqa": "^3.3.4",
+    "axios": "^0.27.2",
     "next": "12.3.1",
     "nuka-carousel": "^5.4.0",
     "react": "18.2.0",

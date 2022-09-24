@@ -10,3 +10,23 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model ArkyCollections {
+  id    String                           @id @default(auto()) @map("_id") @db.ObjectId
+  collectionsName  String                @unique
+  description String
+  tokenAddress String 
+  websiteUrl String
+  discordUrl String
+  telegramUrl String
+  twitterUrl String
+  instagramUrl String
+  profileImageUrl String
+  floorPrice String
+  allTimeVolume String
+  totalToken String
+  numHolders String
+  isVerified Boolean
+  isScam Boolean
+  marketCap String
+  volume String
+}
