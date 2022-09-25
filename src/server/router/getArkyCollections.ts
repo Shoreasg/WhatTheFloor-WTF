@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export const getArkyCollectionsRouter = createRouter()
     .query("mapArkyCollections", {
-        //
+        //map new data from arky api
         async resolve({ ctx }) {
             const { data } = await axios.get(env.ARKY_URL);
             data.result.entries.map(async (data: any) => {
@@ -41,6 +41,7 @@ export const getArkyCollectionsRouter = createRouter()
             return { success: true };
         },
     }).query("updateArkyCollections", {
+        // update existing data in db everytime someone access the page
         async resolve({ ctx }) {
             const { data } = await axios.get(env.ARKY_URL);
             data.result.entries.map(async (data: any) => {
@@ -85,7 +86,15 @@ export const getArkyCollectionsRouter = createRouter()
         },
     })
     .query("getAllCollections", {
+        //get all collections
         async resolve({ ctx }) {
-            return await ctx.prisma.arkyCollections.findMany();
+            const result = await ctx.prisma.arkyCollections.findMany({
+                where: {
+                    collectionsName: {
+                        not: "To Remove",
+                    },
+                },
+            });
+            return result;
         },
     });
