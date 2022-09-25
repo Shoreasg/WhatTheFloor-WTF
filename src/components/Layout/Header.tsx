@@ -29,22 +29,27 @@ const Header = () => {
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link href={"/"}>
-                                        <Image
-                                            className="block h-16 w-auto lg:hidden cursor-pointer"
-                                            width={800}
-                                            height={800}
-                                            src="/WTF logo.png"
-                                            alt="What The Floor"
-                                        /></Link>
+                                        <a>
+                                            <Image
+                                                className="block h-16 w-auto lg:hidden cursor-pointer"
+                                                width={800}
+                                                height={800}
+                                                src="/WTF logo.png"
+                                                alt="What The Floor"
+                                            />
+                                        </a>
+                                    </Link>
                                     <Link href={"/"}>
-                                        <Image
-                                            className="hidden h-20 w-auto lg:block cursor-pointer"
-                                            src="/WTF logo.png"
-                                            width={800}
-                                            height={800}
-                                            alt="What The Floor"
-                                            priority={true}
-                                        />
+                                        <a>
+                                            <Image
+                                                className="hidden h-20 w-auto lg:block cursor-pointer"
+                                                src="/WTF logo.png"
+                                                width={800}
+                                                height={800}
+                                                alt="What The Floor"
+                                                priority={true}
+                                            />
+                                        </a>
                                     </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block mt-7">
