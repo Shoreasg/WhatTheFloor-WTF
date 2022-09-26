@@ -30,10 +30,10 @@ export default function Table(arkyCollections: any) {
           </span>}</div>
         </td>
         <td className="whitespace-nowrap px-3 py-4 text-sm text-black text-center font-semibold">
-          {numabbr(sevenDayVolumeBN)} ZIL
+          {numabbr(sevenDayVolumeBN.toNumber())} ZIL
         </td>
         <td className="whitespace-nowrap px-3 py-4 text-sm text-black text-center font-semibold">
-          {numabbr(allTimeVolumeBN)} ZIL
+          {numabbr(allTimeVolumeBN.toNumber())} ZIL
         </td>
       </tr>)
   })
