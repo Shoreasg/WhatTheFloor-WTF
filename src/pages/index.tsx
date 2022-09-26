@@ -9,6 +9,13 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   // trpc.useQuery(["getArky.updateArkyCollections"],{staleTime: 3600000});
   const arkyCollections =  trpc.useQuery(["getArky.getAllCollections"]);
+
+  const sortArkyCollections = arkyCollections.data?.sort((b:any,a:any)=>
+  {
+    return a.allTimeVolume - b.allTimeVolume
+  })
+  
+
   return (
     <Body>
       <CarouselBanner />
@@ -17,7 +24,7 @@ const Home: NextPage = () => {
            NFT Collections
           </h2>
         </div>
-      <Table arkyCollections={arkyCollections.data}/>
+      <Table arkyCollections={sortArkyCollections}/>
     </Body>
   );
 };

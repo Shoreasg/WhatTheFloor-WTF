@@ -1,7 +1,44 @@
-export default function Table(arkyCollections:any) {
+import numabbr from 'numabbr'
+import BigNumber from "bignumber.js"
+export default function Table(arkyCollections: any) {
 
+  const mapArkyCollections = arkyCollections.arkyCollections?.map((data: any) => {
 
-  console.log(arkyCollections)
+    const allTimeVolumeBN = new BigNumber(data.allTimeVolume).shiftedBy(-12);
+    const sevenDayVolumeBN = new BigNumber(data.sevenDayVolume).shiftedBy(-12);
+   
+    
+
+    return (
+      <tr key={data.id}>
+        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6 w-2/5">
+          <div className="flex items-center">
+            <div className="h-10 w-10 flex-shrink-0">
+              <img className="h-10 w-10 rounded-full" src={data.profileImageUrl === "NA" ? "/WTF_logo_only.png" : data.profileImageUrl} alt="" />
+            </div>
+            <div className="ml-4">
+              <div className="font-medium text-gray-900">{data.collectionsName}</div>
+              <div className="text-gray-500">{data.tokenAddress}</div>
+            </div>
+          </div>
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
+          <div className="text-gray-900">{data.isVerified ? <span className="inline-flex rounded-full bg-green-400 px-2 text-xs font-semibold leading-5 text-black">
+            Verified
+          </span> : <span className="inline-flex rounded-full bg-red-400 px-2 text-xs font-semibold leading-5 text-black">
+            {data.isScam || data.collectionsName.includes("⚠️") ? "Scam" : "Not Verified"}
+          </span>}</div>
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-black text-center font-semibold">
+          {numabbr(sevenDayVolumeBN)} ZIL
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-black text-center font-semibold">
+          {numabbr(allTimeVolumeBN)} ZIL
+        </td>
+      </tr>)
+  })
+
+  console.log(mapArkyCollections)
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -27,36 +64,15 @@ export default function Table(arkyCollections:any) {
                       Verified by Arky
                     </th>
                     <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900 text-center">
+                      7 day Volume
+                    </th>
+                    <th scope="col" className="px-3 py-3.5 text-sm font-semibold text-gray-900 text-center">
                       All Time Volume
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {arkyCollections.arkyCollections?.map((data:any) => (
-                    <tr key={data.id}>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6 w-2/5">
-                        <div className="flex items-center">
-                          <div className="h-10 w-10 flex-shrink-0">
-                            <img className="h-10 w-10 rounded-full" src={data.profileImageUrl==="NA"? "/WTF_logo_only.png" : data.profileImageUrl} alt="" />
-                          </div>
-                          <div className="ml-4">
-                            <div className="font-medium text-gray-900">{data.collectionsName}</div>
-                            <div className="text-gray-500">{data.tokenAddress}</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                         <div className="text-gray-900">{data.isVerified? <span className="inline-flex rounded-full bg-green-400 px-2 text-xs font-semibold leading-5 text-black">
-                          Verified
-                        </span>: <span className="inline-flex rounded-full bg-red-400 px-2 text-xs font-semibold leading-5 text-black">
-                          {data.isScam || data.collectionsName.includes("⚠️")? "Scam":"Not Verified"}
-                        </span>}</div>
-                      </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                        {data.allTimeVolume}
-                      </td>
-                    </tr>
-                  ))}
+                {mapArkyCollections}
                 </tbody>
               </table>
             </div>

@@ -28,5 +28,5 @@ model ArkyCollections {
   isVerified Boolean
   isScam Boolean
   marketCap String
-  volume String
+  sevenDayVolume String
 }

@@ -11,6 +11,7 @@ export const getArkyCollectionsRouter = createRouter()
             data.result.entries.map(async (data: any) => {
                 await ctx.prisma.arkyCollections.createMany(
                     {
+                    
                         data: [
                             {
                                 collectionsName: data.name,
@@ -29,7 +30,7 @@ export const getArkyCollectionsRouter = createRouter()
                                 isVerified: (data.verifiedAt ? true : false),
                                 isScam: (data.reportLevel === 1 ? true : false),
                                 marketCap: "0",
-                                volume: data.priceStat.allTimeVolume
+                                sevenDayVolume: data.priceStat.volume
 
                             }
                         ]
@@ -56,7 +57,7 @@ export const getArkyCollectionsRouter = createRouter()
                             isVerified: (data.verifiedAt ? true : false),
                             isScam: (data.reportLevel === 1 ? true : false),
                             marketCap: "0",
-                            volume: data.priceStat.allTimeVolume
+                            sevenDayVolume: data.priceStat.volume
                         },
                         create:
                         {
@@ -76,7 +77,7 @@ export const getArkyCollectionsRouter = createRouter()
                             isVerified: (data.verifiedAt ? true : false),
                             isScam: (data.reportLevel === 1 ? true : false),
                             marketCap: "0",
-                            volume: data.priceStat.allTimeVolume
+                            sevenDayVolume: data.priceStat.volume
                         },
                     }
                 )
