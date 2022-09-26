@@ -11,7 +11,7 @@ export default function Table(arkyCollections: any) {
 
     return (
       <tr key={data.id}>
-        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6 w-2/5">
+        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6 w-1/4">
           <div className="flex items-center">
             <div className="h-10 w-10 flex-shrink-0">
               <img className="h-10 w-10 rounded-full" src={data.profileImageUrl === "NA" ? "/WTF_logo_only.png" : data.profileImageUrl} alt="" />

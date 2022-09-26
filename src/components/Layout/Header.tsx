@@ -4,8 +4,8 @@ import Image from 'next/future/image'
 import Link from 'next/link'
 
 const navigation: { name: string, href: string }[] = [
-    { name: 'Dashboard', href: '/dashboard' },
-    { name: 'FAQ', href: '/faq' },
+    // { name: 'Dashboard', href: '/dashboard' },
+    // { name: 'FAQ', href: '/faq' },
 ]
 
 const Header = () => {
