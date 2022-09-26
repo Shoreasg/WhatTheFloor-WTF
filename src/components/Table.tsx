@@ -44,7 +44,7 @@ export default function Table(arkyCollections: any) {
         <div className="sm:flex-auto">
           <h1 className="text-3xl font-semibold text-gray-900 text-center mt-10">Arky MarketPlace</h1>
           <p className="mt-2 text-xl text-gray-700 text-center">
-            List of NFT collections that are listed on Arky. Click on each collections to find out more!
+            List of NFT collections that are listed on Arky. Remember to DYOR!
           </p>
         </div>
       </div>
