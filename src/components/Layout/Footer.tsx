@@ -1,4 +1,3 @@
-import { NextPage } from "next"
 import { SVGProps } from "react"
 
 /* This example requires Tailwind CSS v2.0+ */
