@@ -1,8 +1,7 @@
 import Carousel from 'nuka-carousel';
 
 
-const ImageWidth: number = 728;
-const ImageHeight: number = 90;
+
 
 const BannerImages: {
     href: string,
@@ -12,7 +11,7 @@ const BannerImages: {
     ImageHeight: number,
     target: string
 }[] = [
-        { href: "/", src: "/WTF logo.png", alt: "wtf-logo", ImageWidth: 728, ImageHeight: 90, target: "_blank" }
+        { href: "https://soullesscitadel.com/mint/chapter-2", src: "/soulless_woman.png", alt: "soulless_logo", ImageWidth: 728, ImageHeight: 90, target: "_blank" }
     ]
 
 const CarouselBanner = () => {
