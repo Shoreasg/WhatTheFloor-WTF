@@ -1,6 +1,7 @@
 import numabbr from 'numabbr'
 import BigNumber from "bignumber.js"
-export default function Table(arkyCollections: any) {
+
+const Table = (arkyCollections: any) => {
 
   const mapArkyCollections = arkyCollections.arkyCollections?.map((data: any) => {
 
@@ -100,3 +101,5 @@ export default function Table(arkyCollections: any) {
     </div>
   )
 }
+
+export default Table

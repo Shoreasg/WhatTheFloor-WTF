@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import CarouselBanner from "../components/CarouselBanner";
 import Body from "../components/Layout/Body";
+import MarketPlace_NavBar from "../components/MarketPlace_NavBar";
 import Table from "../components/Table";
 import { trpc } from "../utils/trpc";
-
 
 
 const Home: NextPage = () => {
@@ -23,8 +23,8 @@ const Home: NextPage = () => {
           NFT Collections
         </h2>
       </div>
-      {arkyCollections.isLoading ? <Table /> : <Table arkyCollections={sortArkyCollections} />}
-
+      <MarketPlace_NavBar/>
+      <Table arkyCollections={sortArkyCollections} />
     </Body>
   );
 };
