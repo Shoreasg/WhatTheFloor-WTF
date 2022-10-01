@@ -1,5 +1,6 @@
 import numabbr from 'numabbr'
 import BigNumber from "bignumber.js"
+import Link from 'next/link';
 
 const Table = (arkyCollections: any) => {
 
@@ -18,7 +19,9 @@ const Table = (arkyCollections: any) => {
               <img className="h-10 w-10 rounded-full" src={data.profileImageUrl === "NA" ? "/WTF_logo_only.png" : data.profileImageUrl} alt="" />
             </div>
             <div className="ml-4">
-              <div className="font-medium text-gray-900">{data.collectionsName}</div>
+              <Link href={`/arky/${data.tokenAddress}`}>
+              <div className="font-medium text-gray-900 cursor-pointer">{data.collectionsName}</div>
+              </Link>
               <div className="text-gray-500">{data.tokenAddress}</div>
             </div>
           </div>

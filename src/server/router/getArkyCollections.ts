@@ -2,6 +2,7 @@ import { createRouter } from "./context";
 import { env } from "../../env/server.mjs";
 const { toBech32Address } = require('@zilliqa-js/crypto');
 import axios from 'axios';
+import { z } from "zod";
 
 export const getArkyCollectionsRouter = createRouter()
     .query("mapArkyCollections", {
@@ -98,4 +99,21 @@ export const getArkyCollectionsRouter = createRouter()
             });
             return result;
         },
+    }).query("getTokenAddress",
+    {
+        input: z
+        .object(
+            {
+                tokenAddress: z.string(),
+            }
+        ),
+        async resolve({ ctx, input }) {
+            const result = await ctx.prisma.arkyCollections.findFirst({
+                where: {
+                    tokenAddress: input.tokenAddress,
+                },
+            });
+            return result;
+        },
+
     });
