@@ -11,7 +11,7 @@ const CollectionsDetails = ({ CollectionsDetails }: any) => {
 
     return (
         <div className="flex justify-center h-auto w-auto">
-            <div className=" rounded-lg bg-white shadow w-3/4">
+            <div className=" rounded-lg bg-white shadow w-auto">
                 <div className="bg-white p-6">
                     <div className="sm:flex sm:items-center sm:justify-between">
                         <div className="sm:flex sm:space-x-5">
@@ -39,8 +39,8 @@ const CollectionsDetails = ({ CollectionsDetails }: any) => {
                                 <h3 className="text-lg font-medium leading-6 text-gray-900">Last 30 days</h3>
                                 <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
                                     {stats.map((item) => (
-                                        <div key={item.name} className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                                            <dt className="truncate text-sm font-medium text-gray-500">{item.name}</dt>
+                                        <div key={item.name} className="overflow-auto rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+                                            <dt className=" text-sm font-medium text-gray-500">{item.name}</dt>
                                             <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{item.stat}</dd>
                                         </div>
                                     ))}
