@@ -10,7 +10,15 @@ const TokenAddress: NextPage = () => {
 
     const tokenAddress = router.query.TokenAddress as string
 
-    const { data } = trpc.useQuery(['getArky.getTokenAddress', { tokenAddress }])
+    const { data, isLoading } = trpc.useQuery(['getArky.getTokenAddress', { tokenAddress }])
+
+    if (isLoading) {
+        return (<Body>
+            <div className='animate-pulse'>
+                <CollectionsDetails />
+            </div>
+        </Body>)
+    }
 
     if (!data) {
         return <Error statusCode={404} />
