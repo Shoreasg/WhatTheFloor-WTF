@@ -6,9 +6,8 @@ import { prisma } from "../../server/db/client";
 
 
 
-const holderCount = async (req: NextApiRequest, res: NextApiResponse) => {
+const updateArkyCollections = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        console.log(env.APIKEY)
         if(req.query.token !== env.APIKEY)
         {
             return res.status(403).json({error: "unauthorized"});
