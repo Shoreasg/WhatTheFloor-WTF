@@ -11,7 +11,7 @@ const BannerImages: {
     ImageHeight: number,
     target: string
 }[] = [
-        { href: "https://soullesscitadel.com/mint/chapter-2", src: "/soulless_woman.png", alt: "soulless_logo", ImageWidth: 728, ImageHeight: 90, target: "_blank" }
+        { href: "/", src: "/WTF logo.png", alt: "soulless_logo", ImageWidth: 728, ImageHeight: 90, target: "_blank" }
     ]
 
 const CarouselBanner = () => {
