@@ -12,7 +12,7 @@ datasource db {
 
 model ArkyCollections {
   id    String                           @id @default(auto()) @map("_id") @db.ObjectId
-  collectionsName  String                @unique
+  collectionsName  String  @unique              
   description String
   tokenAddress String 
   websiteUrl String
@@ -29,4 +29,13 @@ model ArkyCollections {
   isScam Boolean
   marketCap String
   sevenDayVolume String
+}
+
+model arkyNFTDetails {
+  id    String                           @id @default(auto()) @map("_id") @db.ObjectId
+  tokenAddress String
+  collectionName String @unique
+  marketData Json[]
+  
+
 }

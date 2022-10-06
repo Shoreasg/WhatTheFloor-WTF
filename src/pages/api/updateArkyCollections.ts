@@ -15,6 +15,7 @@ const updateArkyCollections = async (req: NextApiRequest, res: NextApiResponse) 
         }
         const { data } = await axios.get(env.ARKY_URL);
         data.result.entries.map(async (data: any) => {
+            const marketCap = data.priceStat.floorPrice * data.tokenStat.tokenCount;
             await prisma.arkyCollections.upsert(
                 {
                     where: {
@@ -25,7 +26,7 @@ const updateArkyCollections = async (req: NextApiRequest, res: NextApiResponse) 
                         allTimeVolume: data.priceStat.allTimeVolume,
                         isVerified: (data.verifiedAt ? true : false),
                         isScam: (data.reportLevel === 1 ? true : false),
-                        marketCap: "0",
+                        marketCap: marketCap.toString(),
                         sevenDayVolume: data.priceStat.volume
                     },
                     create:
@@ -45,18 +46,13 @@ const updateArkyCollections = async (req: NextApiRequest, res: NextApiResponse) 
                         numHolders: data.tokenStat.holderCount,
                         isVerified: (data.verifiedAt ? true : false),
                         isScam: (data.reportLevel === 1 ? true : false),
-                        marketCap: "0",
+                        marketCap: marketCap.toString(),
                         sevenDayVolume: data.priceStat.volume
                     },
                 }
             )
-             
-
         })
-      
         res.status(200).json({success: true});
-
-        
     } catch (error) {
         res.status(500).json({ error: "internal error" });
     }
@@ -64,4 +60,4 @@ const updateArkyCollections = async (req: NextApiRequest, res: NextApiResponse) 
    
   };
   
-  export default holderCount;
+  export default updateArkyCollections;
